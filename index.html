@@ -133,7 +133,11 @@
 
     <header class="fixed top-0 w-full glass z-40 px-4 py-3 flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-orange to-brand-red flex items-center justify-center shadow-glow text-xl font-bold">N</div>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-orange to-brand-red flex items-center justify-center shadow-glow text-xl font-bold p-1">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M12 22C16.4183 22 20 18.4183 20 14C20 12.0125 19.3333 10.5 18 9.5C18 11.5 17 12.5 15.5 12C14 11.5 14 9.5 14 8C14 5.5 16 4 16 2C13.5 3 11 5 11 7.5C11 10 12.5 11 11 12.5C9.5 14 7 13.5 7 11.5C5.5 12.5 4 14.5 4 17C4 19.7614 6.23858 22 9 22H12Z" fill="white"/>
+                </svg>
+            </div>
             <h1 class="text-lg font-bold tracking-wide leading-tight">Nalam Mini Mart<br><span class="text-brand-orange text-xs uppercase tracking-widest">Snacks</span></h1>
         </div>
         <div id="shop-status-badge" class="px-3 py-1 rounded-full text-xs font-bold border transition-colors duration-300">
@@ -344,7 +348,7 @@
             const shopClosedMsg = document.getElementById('shop-closed-msg');
             const dynamicMsg = document.getElementById('dynamic-timing-msg');
 
-            // NEW: Update Dynamic Timing Message
+            // Update Dynamic Timing Message
             if (dynamicMsg) {
                 if (shopIsOpen) {
                     dynamicMsg.innerText = "We are open now!";
