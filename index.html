@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nalam Mini Mart Snacks - Premium Evening Snacks & Delivery</title>
+    
+    <meta name="description" content="Order hot & crispy evening snacks from Nalam Mini Mart Snacks! Fast delivery, fresh taste, and amazing offers. Order via WhatsApp or visit our shop.">
+    <meta name="keywords" content="snacks shop near me, food delivery, evening snacks, mini mart snacks, chicken snacks, veg snacks, snacks stall">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: { 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' },
+                        dark: { 800: '#1e293b', 900: '#0f172a' }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-in': 'slideIn 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+                        pulseGlow: { '0%, 100%': { opacity: 1, boxShadow: '0 0 15px rgba(249, 115, 22, 0.5)' }, '50%': { opacity: .7, boxShadow: '0 0 25px rgba(249, 115, 22, 0.8)' } },
+                        slideIn: { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Glassmorphism */
+        body { background-color: #0f172a; color: #f8fafc; -webkit-tap-highlight-color: transparent; }
+        .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .text-glow { text-shadow: 0 0 20px rgba(249, 115, 22, 0.6); }
+        .gradient-text { background: linear-gradient(to right, #fb923c, #ef4444); -webkit-background-clip: text; color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #f97316 0%, #ef4444 100%); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .scroll-mt-32 { scroll-margin-top: 8rem; }
+        
+        /* Premium Select Styling */
+        select { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23F97316%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right .7rem top 50%; background-size: .65rem auto; }
+        
+        /* Image fallback */
+        .img-fallback { background-color: #1e293b; background-image: radial-gradient(#334155 15%, transparent 15%), radial-gradient(#334155 15%, transparent 15%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body class="pb-24 relative overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 glass z-40 px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-orange-500/30">
+                <i class="ph-fill ph-fire text-white text-2xl"></i>
+            </div>
+            <div class="leading-tight">
+                <h1 class="text-lg font-bold text-white tracking-wide">Nalam Mini Mart</h1>
+                <p class="text-xs text-brand-400 font-semibold uppercase tracking-widest">Snacks</p>
+            </div>
+        </div>
+        <button onclick="toggleCart()" class="relative p-2 bg-dark-800 rounded-full border border-slate-700 hover:border-brand-500 transition-colors">
+            <i class="ph ph-shopping-cart text-2xl text-white"></i>
+            <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 hidden">0</span>
+        </button>
+    </header>
+
+    <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-16 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-dark-900 to-dark-900 -z-10"></div>
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl -z-10"></div>
+        
+        <i class="ph-fill ph-flame absolute top-32 left-10 text-4xl text-orange-500/30 animate-float" style="animation-delay: 0s;"></i>
+        <i class="ph-fill ph-star absolute bottom-40 right-10 text-3xl text-yellow-500/30 animate-float" style="animation-delay: 1s;"></i>
+        <i class="ph-fill ph-sparkle absolute top-1/2 right-12 text-2xl text-red-400/30 animate-float" style="animation-delay: 2s;"></i>
+
+        <span class="px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-sm text-brand-400 mb-6 inline-flex items-center gap-2 font-medium">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            Fresh Evening Snacks
+        </span>
+        
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-white leading-tight">
+            Hot & Crispy <br>
+            <span class="gradient-text text-glow">Every Time.</span>
+        </h2>
+        
+        <p class="text-slate-300 text-lg md:text-xl mb-10 max-w-lg mx-auto font-light">
+            Craving something delicious? Order from home or visit our shop for visually mouth-watering treats. Fast Delivery.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
+            <button onclick="document.getElementById('menu-nav').scrollIntoView()" class="w-full sm:w-auto px-8 py-4 gradient-bg rounded-2xl text-white font-bold text-lg shadow-lg shadow-orange-500/40 hover:scale-105 transition-transform animate-pulse-glow flex items-center justify-center gap-2">
+                Explore Menu <i class="ph ph-arrow-right font-bold"></i>
+            </button>
+        </div>
+
+        <div class="mt-12 flex items-center gap-4">
+            <button onclick="document.getElementById('veg-section').scrollIntoView()" class="px-6 py-2.5 rounded-full bg-slate-800 border border-slate-700 hover:border-green-500 text-white font-medium flex items-center gap-2 transition-all hover:-translate-y-1">
+                <span class="w-3 h-3 rounded-sm border-2 border-green-500 flex items-center justify-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span></span>
+                Veg Items
+            </button>
+            <button onclick="document.getElementById('nonveg-section').scrollIntoView()" class="px-6 py-2.5 rounded-full bg-slate-800 border border-slate-700 hover:border-red-500 text-white font-medium flex items-center gap-2 transition-all hover:-translate-y-1">
+                <span class="w-3 h-3 rounded-sm border-2 border-red-500 flex items-center justify-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span></span>
+                Non-Veg Items
+            </button>
+        </div>
+    </section>
+
+    <div id="menu-nav" class="sticky top-[64px] z-30 glass px-4 py-3 flex gap-4 overflow-x-auto hide-scrollbar">
+        <button onclick="document.getElementById('veg-section').scrollIntoView()" class="whitespace-nowrap flex-1 py-2 px-4 rounded-xl bg-slate-800 border border-slate-700 active:bg-slate-700 text-white font-semibold flex items-center justify-center gap-2 transition-colors">
+            Veg Items
+        </button>
+        <button onclick="document.getElementById('nonveg-section').scrollIntoView()" class="whitespace-nowrap flex-1 py-2 px-4 rounded-xl bg-slate-800 border border-slate-700 active:bg-slate-700 text-white font-semibold flex items-center justify-center gap-2 transition-colors">
+            Non-Veg Items
+        </button>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 pb-20">
+        
+        <section id="veg-section" class="pt-12 scroll-mt-32">
+            <div class="flex items-center gap-3 mb-6">
+                <h3 class="text-3xl font-bold text-white">Veg Delights</h3>
+                <div class="h-px flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+            </div>
+            <div id="veg-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+
+        <section id="nonveg-section" class="pt-16 scroll-mt-32">
+            <div class="flex items-center gap-3 mb-6">
+                <h3 class="text-3xl font-bold text-white">Non-Veg Bites</h3>
+                <div class="h-px flex-1 bg-gradient-to-r from-red-500/50 to-transparent"></div>
+            </div>
+            <div id="nonveg-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+    </main>
+
+    <div class="fixed bottom-0 left-0 right-0 glass z-40 px-4 py-3 pb-safe border-t border-slate-700/50 flex gap-3 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        <a href="tel:9443992518" class="flex-1 gradient-bg rounded-xl py-3 flex flex-col items-center justify-center shadow-lg shadow-orange-500/30 active:scale-95 transition-transform text-white">
+            <i class="ph-fill ph-phone-call text-xl mb-0.5"></i>
+            <span class="text-xs font-bold uppercase tracking-wide">Call to Order</span>
+        </a>
+        <a href="https://maps.app.goo.gl/qifggqfKZqeMwpif7?g_st=ac" target="_blank" class="flex-1 bg-slate-800 border border-slate-600 rounded-xl py-3 flex flex-col items-center justify-center active:scale-95 transition-transform text-white">
+            <i class="ph-fill ph-map-pin-line text-xl mb-0.5 text-blue-400"></i>
+            <span class="text-xs font-bold uppercase tracking-wide">Get Direction</span>
+        </a>
+    </div>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-black/70 z-50 hidden opacity-0 transition-opacity duration-300" onclick="toggleCart()"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-dark-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-slate-700">
+        
+        <div class="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-900">
+            <h2 class="text-xl font-bold flex items-center gap-2"><i class="ph-fill ph-shopping-bag text-brand-500 text-2xl"></i> Your Cart</h2>
+            <button onclick="toggleCart()" class="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white"><i class="ph ph-x text-xl"></i></button>
+        </div>
+
+        <div class="p-4 bg-slate-800/50 border-b border-slate-800">
+            <p id="delivery-msg" class="text-sm font-semibold mb-2 text-brand-400">Add ₹300 more to unlock FREE Delivery</p>
+            <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div id="delivery-progress" class="h-full gradient-bg w-0 transition-all duration-500"></div>
+            </div>
+        </div>
+
+        <div id="offers-banner" class="px-4 py-3 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border-b border-slate-800 text-sm font-medium text-indigo-300 hidden items-center gap-2">
+            <i class="ph-fill ph-gift text-lg text-purple-400"></i>
+            <span id="offers-text"></span>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+            <div id="empty-cart" class="h-full flex flex-col items-center justify-center text-slate-500">
+                <i class="ph ph-shopping-cart text-6xl mb-4 opacity-20"></i>
+                <p class="text-lg">Your cart is empty.</p>
+                <p class="text-sm mt-1">Let's add some tasty snacks!</p>
+            </div>
+            </div>
+
+        <div class="p-4 bg-slate-900 border-t border-slate-700 rounded-t-2xl shadow-[0_-10px_20px_rgba(0,0,0,0.3)]">
+            <div class="space-y-2 mb-4 text-sm">
+                <div class="flex justify-between text-slate-300">
+                    <span>Item Total</span>
+                    <span id="cart-subtotal">₹0</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                    <span>Delivery Fee</span>
+                    <span id="cart-delivery">₹40</span>
+                </div>
+                <div class="flex justify-between font-bold text-lg text-white pt-2 border-t border-slate-700 mt-2">
+                    <span>Grand Total</span>
+                    <span id="cart-total" class="text-brand-400">₹0</span>
+                </div>
+            </div>
+            
+            <div id="shop-timing-msg" class="hidden mb-3 text-center bg-red-500/20 text-red-400 py-2 rounded-xl text-sm font-bold border border-red-500/30">
+                Orders Available Between 4 PM – 9 PM
+            </div>
+            
+            <button id="whatsapp-btn" onclick="sendWhatsAppOrder()" class="w-full gradient-bg text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed">
+                <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. DATA STRUCTURE ---
+        const menuData = [
+            // VEG
+            { id: 'v1', name: 'French Fries', type: 'veg', desc: '1 Plate', price: 60, image: 'images/french-fries.jpg', flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'] },
+            { id: 'v2', name: 'Fried Veg Momos', type: 'veg', desc: '6 Pieces', price: 60, image: 'images/fried-veg-momos.jpg' },
+            { id: 'v3', name: 'Samosa', type: 'veg', desc: '1 Piece', price: 20, image: 'images/samosa.jpg' },
+            { id: 'v4', name: 'Veg Lollipop', type: 'veg', desc: '4 Pieces', price: 60, image: 'images/veg-lollipop.jpg' },
+            { id: 'v5', name: 'Veg Nuggets', type: 'veg', desc: '8 Pieces', price: 60, image: 'images/veg-nuggets.jpg' },
+            { id: 'v6', name: 'Fried Veg Roll', type: 'veg', desc: '3 Pieces', price: 60, image: 'images/fried-veg-roll.jpg' },
+            { id: 'v7', name: 'Cheese Corn Nuggets', type: 'veg', desc: '6 Pieces', price: 60, image: 'images/cheese-corn-nuggets.jpg' },
+            { id: 'v8', name: 'Veg Popcorn', type: 'veg', desc: 'Crispy bites', sizes: { 'Small': 20, 'Medium': 35, 'Large': 50 }, flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'], image: 'images/veg-popcorn.jpg' },
+            { id: 'v9', name: 'Veg Burger', type: 'veg', desc: 'Single Patty', price: 80, image: 'images/veg-burger-single.jpg' },
+            { id: 'v10', name: 'Veg Burger', type: 'veg', desc: 'Double Patty', price: 120, image: 'images/veg-burger-double.jpg' },
+            
+            // NON-VEG
+            { id: 'nv1', name: 'Chicken Garlic Fingers', type: 'non-veg', desc: '5 Pieces', price: 120, image: 'images/chicken-garlic-fingers.jpg' },
+            { id: 'nv2', name: 'Chicken Nuggets', type: 'non-veg', desc: '8 Pieces', price: 120, image: 'images/chicken-nuggets.jpg' },
+            { id: 'nv3', name: 'Chicken Popcorn', type: 'non-veg', desc: '20 Pieces', price: 120, image: 'images/chicken-popcorn.jpg' },
+            { id: 'nv4', name: 'Chicken Balls', type: 'non-veg', desc: '6 Pieces', price: 120, image: 'images/chicken-balls.jpg' },
+            { id: 'nv5', name: 'Chicken Breast Strips', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-breast-strips.jpg' },
+            { id: 'nv6', name: 'Chicken Fried Momos', type: 'non-veg', desc: '8 Pieces', price: 120, image: 'images/chicken-fried-momos.jpg' },
+            { id: 'nv7', name: 'Chicken Lollipop', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-lollipop.jpg' },
+            { id: 'nv8', name: 'Chicken Wings', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-wings.jpg' },
+            { id: 'nv9', name: 'Breaded Chicken', type: 'non-veg', desc: '2 Pieces', price: 120, image: 'images/breaded-chicken.jpg' },
+            { id: 'nv10', name: 'Chicken Burger', type: 'non-veg', desc: 'Single Patty', price: 100, image: 'images/chicken-burger-single.jpg' },
+            { id: 'nv11', name: 'Chicken Burger', type: 'non-veg', desc: 'Double Patty', price: 140, image: 'images/chicken-burger-double.jpg' }
+        ];
+
+        let cart = [];
+        let isShopOpen = false;
+
+        // --- 2. INITIALIZATION & RENDERING ---
+        function init() {
+            renderMenu();
+            checkShopTimings();
+            setInterval(checkShopTimings, 60000); // Check every minute
+        }
+
+        function renderMenu() {
+            const vegGrid = document.getElementById('veg-grid');
+            const nonVegGrid = document.getElementById('nonveg-grid');
+            
+            menuData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-2xl p-4 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300";
+                
+                const typeIcon = item.type === 'veg' 
+                    ? `<span class="absolute top-4 left-4 z-10 w-4 h-4 rounded-sm border-2 border-green-500 bg-white flex items-center justify-center shadow-md"><span class="w-2 h-2 bg-green-500 rounded-full"></span></span>`
+                    : `<span class="absolute top-4 left-4 z-10 w-4 h-4 rounded-sm border-2 border-red-500 bg-white flex items-center justify-center shadow-md"><span class="w-2 h-2 bg-red-500 rounded-full"></span></span>`;
+
+                // Build Price Display
+                let priceDisplay = `₹${item.price}`;
+                if(item.sizes) priceDisplay = `From ₹${Math.min(...Object.values(item.sizes))}`;
+
+                // Build Variant Selectors
+                let selectorsHtml = '';
+                if(item.sizes) {
+                    selectorsHtml += `<select id="size-${item.id}" onchange="updateCardUI('${item.id}')" class="w-full bg-slate-800 text-sm text-slate-200 border border-slate-700 rounded-lg p-2.5 mb-2 focus:border-brand-500 outline-none">`;
+                    for(const [size, price] of Object.entries(item.sizes)) {
+                        selectorsHtml += `<option value="${size}">${size} - ₹${price}</option>`;
+                    }
+                    selectorsHtml += `</select>`;
+                }
+                
+                if(item.flavors) {
+                    selectorsHtml += `<select id="flavor-${item.id}" onchange="updateCardUI('${item.id}')" class="w-full bg-slate-800 text-sm text-slate-200 border border-slate-700 rounded-lg p-2.5 mb-3 focus:border-brand-500 outline-none">`;
+                    item.flavors.forEach(flavor => {
+                        selectorsHtml += `<option value="${flavor}">${flavor}</option>`;
+                    });
+                    selectorsHtml += `</select>`;
+                }
+
+                card.innerHTML = `
+                    ${typeIcon}
+                    <div class="w-full h-40 rounded-xl mb-4 overflow-hidden img-fallback relative">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="flex-1 flex flex-col">
+                        <h4 class="text-lg font-bold text-white leading-tight mb-1">${item.name}</h4>
+                        <p class="text-xs text-slate-400 mb-3">${item.desc}</p>
+                        <div class="mt-auto">
+                            ${selectorsHtml}
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="text-lg font-extrabold text-brand-400" id="price-disp-${item.id}">${priceDisplay}</span>
+                                <div id="action-${item.id}" class="w-[100px] h-[40px]">
+                                    <button onclick="addToCart('${item.id}')" class="w-full h-full bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-xl shadow-md active:scale-95 transition-all text-sm">ADD</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if(item.type === 'veg') vegGrid.appendChild(card);
+                else nonVegGrid.appendChild(card);
+
+                // Initial setup for variant pricing display
+                if(item.sizes || item.flavors) updateCardUI(item.id);
+            });
+        }
+
+        // --- 3. LOGIC & STATE MANAGEMENT ---
+        function getSelectedVariants(itemId) {
+            const item = menuData.find(i => i.id === itemId);
+            const sizeEl = document.getElementById(`size-${itemId}`);
+            const flavorEl = document.getElementById(`flavor-${itemId}`);
+            
+            const size = sizeEl ? sizeEl.value : null;
+            const flavor = flavorEl ? flavorEl.value : null;
+            const price = size ? item.sizes[size] : item.price;
+            
+            return { size, flavor, price };
+        }
+
+        function generateCartKey(itemId, size, flavor) {
+            return `${itemId}|${size || 'none'}|${flavor || 'none'}`;
+        }
+
+        function updateCardUI(itemId) {
+            const item = menuData.find(i => i.id === itemId);
+            const vars = getSelectedVariants(itemId);
+            
+            // Update Price display if size changed
+            if(item.sizes) {
+                document.getElementById(`price-disp-${itemId}`).innerText = `₹${vars.price}`;
+            }
+
+            // Check if exact variant is in cart
+            const cartKey = generateCartKey(itemId, vars.size, vars.flavor);
+            const cartItem = cart.find(c => c.key === cartKey);
+            const actionContainer = document.getElementById(`action-${itemId}`);
+
+            if(cartItem) {
+                actionContainer.innerHTML = `
+                    <div class="w-full h-full bg-slate-800 border border-brand-500 rounded-xl flex items-center justify-between px-2 text-white font-bold">
+                        <button onclick="updateQty('${cartKey}', -1)" class="p-1 text-slate-300 hover:text-white active:scale-90"><i class="ph ph-minus"></i></button>
+                        <span>${cartItem.qty}</span>
+                        <button onclick="updateQty('${cartKey}', 1)" class="p-1 text-brand-400 hover:text-brand-300 active:scale-90"><i class="ph ph-plus"></i></button>
+                    </div>
+                `;
+            } else {
+                actionContainer.innerHTML = `
+                    <button onclick="addToCart('${itemId}')" class="w-full h-full bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-xl shadow-md shadow-slate-100/10 active:scale-95 transition-all text-sm">ADD</button>
+                `;
+            }
+        }
+
+        function addToCart(itemId) {
+            const item = menuData.find(i => i.id === itemId);
+            const vars = getSelectedVariants(itemId);
+            const key = generateCartKey(itemId, vars.size, vars.flavor);
+            
+            cart.push({
+                key, itemId, name: item.name, price: vars.price, qty: 1, size: vars.size, flavor: vars.flavor
+            });
+            
+            updateCart();
+            openCart();
+        }
+
+        function updateQty(cartKey, change) {
+            const index = cart.findIndex(c => c.key === cartKey);
+            if(index !== -1) {
+                cart[index].qty += change;
+                if(cart[index].qty <= 0) cart.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        // --- 4. CART & CALCULATIONS ---
+        function updateCart() {
+            let subtotal = 0;
+            const itemsContainer = document.getElementById('cart-items-container');
+            const emptyState = document.getElementById('empty-cart');
+            const badge = document.getElementById('cart-badge');
+            
+            itemsContainer.innerHTML = '';
+            
+            let totalQty = 0;
+
+            if(cart.length === 0) {
+                itemsContainer.appendChild(emptyState);
+                emptyState.classList.remove('hidden');
+                badge.classList.add('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                badge.classList.remove('hidden');
+                
+                cart.forEach(item => {
+                    subtotal += item.price * item.qty;
+                    totalQty += item.qty;
+                    
+                    let variantText = [];
+                    if(item.size) variantText.push(item.size);
+                    if(item.flavor) variantText.push(item.flavor);
+                    let variantStr = variantText.length > 0 ? `<p class="text-xs text-slate-400 mb-2">${variantText.join(' - ')}</p>` : '';
+
+                    itemsContainer.innerHTML += `
+                        <div class="bg-slate-800 rounded-xl p-3 flex justify-between items-center border border-slate-700/50">
+                            <div class="flex-1">
+                                <h5 class="text-sm font-bold text-white">${item.name}</h5>
+                                ${variantStr}
+                                <span class="text-brand-400 font-bold text-sm">₹${item.price}</span>
+                            </div>
+                            <div class="bg-slate-900 border border-slate-600 rounded-lg flex items-center justify-between px-2 py-1 w-24">
+                                <button onclick="updateQty('${item.key}', -1)" class="text-slate-400 hover:text-white"><i class="ph ph-minus"></i></button>
+                                <span class="text-white font-bold text-sm">${item.qty}</span>
+                                <button onclick="updateQty('${item.key}', 1)" class="text-brand-400 hover:text-brand-300"><i class="ph ph-plus"></i></button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            badge.innerText = totalQty;
+
+            // Delivery Logic
+            let deliveryFee = cart.length > 0 ? 40 : 0;
+            const deliveryProgress = document.getElementById('delivery-progress');
+            const deliveryMsg = document.getElementById('delivery-msg');
+            
+            if (subtotal >= 300) {
+                deliveryFee = 0;
+                deliveryProgress.style.width = '100%';
+                deliveryMsg.innerHTML = '🎉 <span class="text-green-400">FREE Delivery Unlocked</span>';
+            } else if (subtotal > 0) {
+                const percent = (subtotal / 300) * 100;
+                deliveryProgress.style.width = `${percent}%`;
+                deliveryMsg.innerHTML = `Add ₹${300 - subtotal} more for <span class="text-brand-400">FREE Delivery</span>`;
+            } else {
+                deliveryProgress.style.width = '0%';
+                deliveryMsg.innerText = 'Add ₹300 more to unlock FREE Delivery';
+            }
+
+            // Offers Logic
+            const offersBanner = document.getElementById('offers-banner');
+            const offersText = document.getElementById('offers-text');
+            
+            if(subtotal === 0) {
+                offersBanner.classList.add('hidden');
+            } else if (subtotal < 180) {
+                offersBanner.classList.remove('hidden');
+                offersBanner.className = "px-4 py-3 bg-slate-800/80 border-b border-slate-800 text-sm font-medium text-slate-300 flex items-center gap-2";
+                offersText.innerHTML = `Add ₹${180 - subtotal} more to get <strong class="text-yellow-400">FREE Limonata</strong>`;
+            } else if (subtotal >= 180 && subtotal < 300) {
+                offersBanner.classList.remove('hidden');
+                offersBanner.className = "px-4 py-3 bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border-b border-slate-800 text-sm font-medium text-yellow-300 flex items-center gap-2";
+                offersText.innerHTML = `🎉 FREE Limonata! Add ₹${300 - subtotal} more for <strong class="text-green-400">FREE Cold Drink + FREE Delivery</strong>`;
+            } else {
+                offersBanner.classList.remove('hidden');
+                offersBanner.className = "px-4 py-3 bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-b border-slate-800 text-sm font-medium text-green-300 flex items-center gap-2";
+                offersText.innerHTML = `🎉 You unlocked <strong class="text-white">FREE Cold Drink + FREE Delivery!</strong>`;
+            }
+
+            // Totals Update
+            document.getElementById('cart-subtotal').innerText = `₹${subtotal}`;
+            if(cart.length > 0 && deliveryFee === 0) {
+                document.getElementById('cart-delivery').innerHTML = `<span class="line-through text-slate-500 mr-2">₹40</span> <span class="text-green-400 font-bold">FREE</span>`;
+            } else {
+                document.getElementById('cart-delivery').innerText = `₹${deliveryFee}`;
+            }
+            
+            const grandTotal = subtotal + deliveryFee;
+            document.getElementById('cart-total').innerText = `₹${grandTotal}`;
+
+            // Refresh Menu Cards UI
+            menuData.forEach(item => updateCardUI(item.id));
+            
+            checkCheckoutState(grandTotal);
+        }
+
+        // --- 5. SHOP TIMINGS & WHATSAPP LOGIC ---
+        function checkShopTimings() {
+            // IST Time conversion logic (rough logic using client local time assuming target is local)
+            const currentHour = new Date().getHours();
+            isShopOpen = currentHour >= 16 && currentHour < 21; // 4 PM to 9 PM (21:00)
+            
+            updateCart(); // Trigger re-evaluation of checkout button
+        }
+
+        function checkCheckoutState(grandTotal) {
+            const btn = document.getElementById('whatsapp-btn');
+            const timingMsg = document.getElementById('shop-timing-msg');
+            
+            if(!isShopOpen) {
+                btn.classList.add('hidden');
+                timingMsg.classList.remove('hidden');
+                if(currentHour < 16) {
+                    timingMsg.innerText = "Orders Open at 4 PM";
+                } else {
+                    timingMsg.innerText = "Shop Closed Now (Open 4 PM - 9 PM)";
+                }
+            } else {
+                timingMsg.classList.add('hidden');
+                btn.classList.remove('hidden');
+                btn.disabled = cart.length === 0;
+            }
+        }
+
+        function sendWhatsAppOrder() {
+            if(cart.length === 0) return;
+            
+            let msg = `Hello Nalam Mini Mart Snacks,%0A%0AI want to order:%0A%0A`;
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                let vars = [];
+                if(item.size) vars.push(item.size);
+                if(item.flavor) vars.push(item.flavor);
+                let varStr = vars.length > 0 ? ` (${vars.join(' - ')})` : '';
+                
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                msg += `* ${item.name}${varStr} x${item.qty} = ₹${itemTotal}%0A`;
+            });
+            
+            let deliveryFee = subtotal >= 300 ? 0 : 40;
+            let grandTotal = subtotal + deliveryFee;
+            
+            msg += `%0A--------------------%0A`;
+            msg += `*Item Total:* ₹${subtotal}%0A`;
+            if(deliveryFee === 0) {
+                msg += `*Delivery:* FREE%0A`;
+            } else {
+                msg += `*Delivery:* ₹${deliveryFee}%0A`;
+            }
+            msg += `*Grand Total:* ₹${grandTotal}%0A`;
+            msg += `--------------------%0A`;
+            
+            // Offers
+            if(subtotal >= 300) {
+                msg += `%0A🎁 *Offers Unlocked:* FREE Cold Drink + FREE Delivery%0A`;
+            } else if (subtotal >= 180) {
+                msg += `%0A🎁 *Offers Unlocked:* FREE Limonata%0A`;
+            }
+
+            msg += `%0APlease confirm my order.`;
+            
+            const whatsappUrl = `https://wa.me/919443992518?text=${msg}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // --- 6. UI HELPERS ---
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            
+            if(sidebar.classList.contains('translate-x-full')) {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // Boot App
+        init();
+    </script>
+</body>
+</html>
