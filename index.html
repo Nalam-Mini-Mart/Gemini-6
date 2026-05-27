@@ -3,575 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nalam Mini Mart Snacks - Premium Evening Snacks & Delivery</title>
-    
-    <meta name="description" content="Order hot & crispy evening snacks from Nalam Mini Mart Snacks! Fast delivery, fresh taste, and amazing offers. Order via WhatsApp or visit our shop.">
+    <title>Nalam Mini Mart Snacks | Premium Evening Snacks</title>
+    <meta name="description" content="Order hot & crispy snacks from Nalam Mini Mart Snacks. Veg and Non-Veg evening snacks delivered fast.">
     <meta name="keywords" content="snacks shop near me, food delivery, evening snacks, mini mart snacks, chicken snacks, veg snacks, snacks stall">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    fontFamily: { poppins: ['Poppins', 'sans-serif'] },
                     colors: {
-                        brand: { 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' },
-                        dark: { 800: '#1e293b', 900: '#0f172a' }
-                    },
-                    animation: {
-                        'float': 'float 4s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-in': 'slideIn 0.3s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
-                        pulseGlow: { '0%, 100%': { opacity: 1, boxShadow: '0 0 15px rgba(249, 115, 22, 0.5)' }, '50%': { opacity: .7, boxShadow: '0 0 25px rgba(249, 115, 22, 0.8)' } },
-                        slideIn: { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(0)' } }
+                        brand: { 500: '#f97316', 600: '#ea580c', drop: '#dc2626' }
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* Custom Styles & Glassmorphism */
-        body { background-color: #0f172a; color: #f8fafc; -webkit-tap-highlight-color: transparent; }
-        .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .glass-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
-        .text-glow { text-shadow: 0 0 20px rgba(249, 115, 22, 0.6); }
-        .gradient-text { background: linear-gradient(to right, #fb923c, #ef4444); -webkit-background-clip: text; color: transparent; }
-        .gradient-bg { background: linear-gradient(135deg, #f97316 0%, #ef4444 100%); }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .scroll-mt-32 { scroll-margin-top: 8rem; }
+        body { font-family: 'Poppins', sans-serif; background-color: #0f172a; color: #ffffff; }
         
-        /* Premium Select Styling */
-        select { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23F97316%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right .7rem top 50%; background-size: .65rem auto; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
         
-        /* Image fallback */
-        .img-fallback { background-color: #1e293b; background-image: radial-gradient(#334155 15%, transparent 15%), radial-gradient(#334155 15%, transparent 15%); background-size: 20px 20px; background-position: 0 0, 10px 10px; display: flex; align-items: center; justify-content: center; }
+        /* Animations & Glassmorphism */
+        .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: linear-gradient(145deg, rgba(30,41,59,0.9) 0%, rgba(15,23,42,0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.08); }
+        .glass-cart { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(16px); border-left: 1px solid rgba(255,255,255,0.1); }
+        .glass-bottom { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,165,0,0.2); }
+        
+        .glow-text { text-shadow: 0 0 15px rgba(249, 115, 22, 0.6); }
+        .glow-btn { box-shadow: 0 0 20px rgba(249, 115, 22, 0.4); transition: all 0.3s ease; }
+        .glow-btn:hover { box-shadow: 0 0 30px rgba(249, 115, 22, 0.7); transform: translateY(-2px); }
+        
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        
+        @keyframes float-delay { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
+        .animate-float-delay { animation: float-delay 4s ease-in-out infinite; animation-delay: 1s; }
+
+        @keyframes pulse-border { 0% { border-color: rgba(249,115,22,0.4); } 50% { border-color: rgba(249,115,22,1); } 100% { border-color: rgba(249,115,22,0.4); } }
+        .active-anchor { background: linear-gradient(to right, #f97316, #dc2626); color: white; animation: pulse-border 2s infinite; }
+        
+        .cart-slide-in { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .cart-slide-in.open { transform: translateX(0); }
+        
+        /* Select Dropdown Styling */
+        select { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1em; }
     </style>
 </head>
-<body class="pb-24 relative overflow-x-hidden">
+<body class="relative pb-24 overflow-x-hidden antialiased text-gray-100">
 
-    <header class="fixed top-0 left-0 right-0 glass z-40 px-4 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-orange-500/30">
-                <i class="ph-fill ph-fire text-white text-2xl"></i>
+    <div class="fixed top-0 w-full z-50 glass-nav py-2 text-center text-sm md:text-base font-semibold shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4">
+            <span class="text-gray-300"><i class="fa-regular fa-clock mr-1 text-brand-500"></i> Shop Timings: 4:00 PM – 9:00 PM</span>
+            <span id="shop-status" class="px-3 py-0.5 rounded-full text-xs font-bold tracking-wide transition-colors duration-300">
+                </span>
+        </div>
+    </div>
+
+    <header class="relative pt-24 pb-16 min-h-[85vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-brand-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-red-600 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500 font-medium text-sm animate-float">
+                ✨ Hot & Crispy Snacks
             </div>
-            <div class="leading-tight">
-                <h1 class="text-lg font-bold text-white tracking-wide">Nalam Mini Mart</h1>
-                <p class="text-xs text-brand-400 font-semibold uppercase tracking-widest">Snacks</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-yellow-500 glow-text">Nalam Mini Mart Snacks</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-medium">Crispy & Tasty Every Time. Order From Home!</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#menu-section" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-brand-500 to-red-600 text-white font-bold text-lg glow-btn flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> Explore Menu
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-4">
+                <a href="#veg-section" class="px-6 py-2 rounded-full border border-green-500/50 text-green-400 hover:bg-green-500/10 transition flex items-center gap-2 font-medium">
+                    <i class="fa-solid fa-leaf text-sm"></i> Veg Items
+                </a>
+                <a href="#nonveg-section" class="px-6 py-2 rounded-full border border-red-500/50 text-red-400 hover:bg-red-500/10 transition flex items-center gap-2 font-medium">
+                    <i class="fa-solid fa-drumstick-bite text-sm"></i> Non-Veg Items
+                </a>
             </div>
         </div>
-        <button onclick="toggleCart()" class="relative p-2 bg-dark-800 rounded-full border border-slate-700 hover:border-brand-500 transition-colors">
-            <i class="ph ph-shopping-cart text-2xl text-white"></i>
-            <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 hidden">0</span>
-        </button>
     </header>
 
-    <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-16 px-4 text-center overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-dark-900 to-dark-900 -z-10"></div>
-        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl -z-10"></div>
-        
-        <i class="ph-fill ph-flame absolute top-32 left-10 text-4xl text-orange-500/30 animate-float" style="animation-delay: 0s;"></i>
-        <i class="ph-fill ph-star absolute bottom-40 right-10 text-3xl text-yellow-500/30 animate-float" style="animation-delay: 1s;"></i>
-        <i class="ph-fill ph-sparkle absolute top-1/2 right-12 text-2xl text-red-400/30 animate-float" style="animation-delay: 2s;"></i>
-
-        <span class="px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-sm text-brand-400 mb-6 inline-flex items-center gap-2 font-medium">
-            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            Fresh Evening Snacks
-        </span>
-        
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-white leading-tight">
-            Hot & Crispy <br>
-            <span class="gradient-text text-glow">Every Time.</span>
-        </h2>
-        
-        <p class="text-slate-300 text-lg md:text-xl mb-10 max-w-lg mx-auto font-light">
-            Craving something delicious? Order from home or visit our shop for visually mouth-watering treats. Fast Delivery.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
-            <button onclick="document.getElementById('menu-nav').scrollIntoView()" class="w-full sm:w-auto px-8 py-4 gradient-bg rounded-2xl text-white font-bold text-lg shadow-lg shadow-orange-500/40 hover:scale-105 transition-transform animate-pulse-glow flex items-center justify-center gap-2">
-                Explore Menu <i class="ph ph-arrow-right font-bold"></i>
-            </button>
+    <div class="sticky top-[52px] md:top-[44px] z-40 glass-nav py-3 border-t border-white/5 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-center gap-4">
+            <a href="#veg-section" class="px-5 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-semibold border border-gray-700 hover:border-brand-500 transition">Veg Menu</a>
+            <a href="#nonveg-section" class="px-5 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-semibold border border-gray-700 hover:border-brand-500 transition">Non-Veg Menu</a>
         </div>
-
-        <div class="mt-12 flex items-center gap-4">
-            <button onclick="document.getElementById('veg-section').scrollIntoView()" class="px-6 py-2.5 rounded-full bg-slate-800 border border-slate-700 hover:border-green-500 text-white font-medium flex items-center gap-2 transition-all hover:-translate-y-1">
-                <span class="w-3 h-3 rounded-sm border-2 border-green-500 flex items-center justify-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span></span>
-                Veg Items
-            </button>
-            <button onclick="document.getElementById('nonveg-section').scrollIntoView()" class="px-6 py-2.5 rounded-full bg-slate-800 border border-slate-700 hover:border-red-500 text-white font-medium flex items-center gap-2 transition-all hover:-translate-y-1">
-                <span class="w-3 h-3 rounded-sm border-2 border-red-500 flex items-center justify-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span></span>
-                Non-Veg Items
-            </button>
-        </div>
-    </section>
-
-    <div id="menu-nav" class="sticky top-[64px] z-30 glass px-4 py-3 flex gap-4 overflow-x-auto hide-scrollbar">
-        <button onclick="document.getElementById('veg-section').scrollIntoView()" class="whitespace-nowrap flex-1 py-2 px-4 rounded-xl bg-slate-800 border border-slate-700 active:bg-slate-700 text-white font-semibold flex items-center justify-center gap-2 transition-colors">
-            Veg Items
-        </button>
-        <button onclick="document.getElementById('nonveg-section').scrollIntoView()" class="whitespace-nowrap flex-1 py-2 px-4 rounded-xl bg-slate-800 border border-slate-700 active:bg-slate-700 text-white font-semibold flex items-center justify-center gap-2 transition-colors">
-            Non-Veg Items
-        </button>
     </div>
 
-    <main class="max-w-5xl mx-auto px-4 pb-20">
+    <main id="menu-section" class="container mx-auto px-4 py-12 relative z-10">
         
-        <section id="veg-section" class="pt-12 scroll-mt-32">
-            <div class="flex items-center gap-3 mb-6">
-                <h3 class="text-3xl font-bold text-white">Veg Delights</h3>
-                <div class="h-px flex-1 bg-gradient-to-r from-green-500/50 to-transparent"></div>
-            </div>
-            <div id="veg-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="veg-section" class="pt-8 mb-16 scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center text-green-500 border border-green-500/30">
+                    <i class="fa-solid fa-leaf"></i>
                 </div>
-        </section>
+                <h2 class="text-3xl font-bold text-white">Veg Items</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="veg-container">
+                </div>
+        </div>
 
-        <section id="nonveg-section" class="pt-16 scroll-mt-32">
-            <div class="flex items-center gap-3 mb-6">
-                <h3 class="text-3xl font-bold text-white">Non-Veg Bites</h3>
-                <div class="h-px flex-1 bg-gradient-to-r from-red-500/50 to-transparent"></div>
-            </div>
-            <div id="nonveg-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="nonveg-section" class="pt-8 mb-12 scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center text-red-500 border border-red-500/30">
+                    <i class="fa-solid fa-drumstick-bite"></i>
                 </div>
-        </section>
+                <h2 class="text-3xl font-bold text-white">Non-Veg Items</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="non-veg-container">
+                </div>
+        </div>
     </main>
 
-    <div class="fixed bottom-0 left-0 right-0 glass z-40 px-4 py-3 pb-safe border-t border-slate-700/50 flex gap-3 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <a href="tel:9443992518" class="flex-1 gradient-bg rounded-xl py-3 flex flex-col items-center justify-center shadow-lg shadow-orange-500/30 active:scale-95 transition-transform text-white">
-            <i class="ph-fill ph-phone-call text-xl mb-0.5"></i>
-            <span class="text-xs font-bold uppercase tracking-wide">Call to Order</span>
-        </a>
-        <a href="https://maps.app.goo.gl/qifggqfKZqeMwpif7?g_st=ac" target="_blank" class="flex-1 bg-slate-800 border border-slate-600 rounded-xl py-3 flex flex-col items-center justify-center active:scale-95 transition-transform text-white">
-            <i class="ph-fill ph-map-pin-line text-xl mb-0.5 text-blue-400"></i>
-            <span class="text-xs font-bold uppercase tracking-wide">Get Direction</span>
-        </a>
-    </div>
+    <button onclick="toggleCart()" id="cart-float-btn" class="fixed bottom-28 right-4 md:right-8 z-40 bg-gradient-to-r from-brand-500 to-red-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl glow-btn transition-transform hidden animate-bounce">
+        <i class="fa-solid fa-shopping-cart relative">
+            <span id="cart-badge" class="absolute -top-3 -right-4 bg-white text-red-600 text-xs font-extrabold px-2 py-0.5 rounded-full shadow-lg">0</span>
+        </i>
+    </button>
 
-    <div id="cart-overlay" class="fixed inset-0 bg-black/70 z-50 hidden opacity-0 transition-opacity duration-300" onclick="toggleCart()"></div>
-    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-dark-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-slate-700">
-        
-        <div class="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-900">
-            <h2 class="text-xl font-bold flex items-center gap-2"><i class="ph-fill ph-shopping-bag text-brand-500 text-2xl"></i> Your Cart</h2>
-            <button onclick="toggleCart()" class="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white"><i class="ph ph-x text-xl"></i></button>
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-[400px] glass-cart z-50 cart-slide-in flex flex-col shadow-2xl">
+        <div class="p-4 border-b border-gray-700 flex justify-between items-center bg-gray-900/50">
+            <h3 class="text-xl font-bold flex items-center gap-2"><i class="fa-solid fa-basket-shopping text-brand-500"></i> Your Order</h3>
+            <button onclick="toggleCart()" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:text-white transition"><i class="fa-solid fa-times"></i></button>
         </div>
 
-        <div class="p-4 bg-slate-800/50 border-b border-slate-800">
-            <p id="delivery-msg" class="text-sm font-semibold mb-2 text-brand-400">Add ₹300 more to unlock FREE Delivery</p>
-            <div class="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
-                <div id="delivery-progress" class="h-full gradient-bg w-0 transition-all duration-500"></div>
+        <div id="offer-banner" class="bg-gradient-to-r from-blue-900 to-indigo-900 p-3 text-center text-sm font-medium border-b border-blue-500/30 shadow-inner transition-all">
             </div>
-        </div>
-
-        <div id="offers-banner" class="px-4 py-3 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border-b border-slate-800 text-sm font-medium text-indigo-300 hidden items-center gap-2">
-            <i class="ph-fill ph-gift text-lg text-purple-400"></i>
-            <span id="offers-text"></span>
-        </div>
 
         <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4">
-            <div id="empty-cart" class="h-full flex flex-col items-center justify-center text-slate-500">
-                <i class="ph ph-shopping-cart text-6xl mb-4 opacity-20"></i>
-                <p class="text-lg">Your cart is empty.</p>
-                <p class="text-sm mt-1">Let's add some tasty snacks!</p>
-            </div>
             </div>
 
-        <div class="p-4 bg-slate-900 border-t border-slate-700 rounded-t-2xl shadow-[0_-10px_20px_rgba(0,0,0,0.3)]">
-            <div class="space-y-2 mb-4 text-sm">
-                <div class="flex justify-between text-slate-300">
-                    <span>Item Total</span>
-                    <span id="cart-subtotal">₹0</span>
-                </div>
-                <div class="flex justify-between text-slate-300">
-                    <span>Delivery Fee</span>
-                    <span id="cart-delivery">₹40</span>
-                </div>
-                <div class="flex justify-between font-bold text-lg text-white pt-2 border-t border-slate-700 mt-2">
-                    <span>Grand Total</span>
-                    <span id="cart-total" class="text-brand-400">₹0</span>
-                </div>
+        <div class="p-4 border-t border-gray-700 bg-gray-900/80">
+            <div class="flex justify-between text-gray-300 text-sm mb-2">
+                <span>Item Total</span>
+                <span id="cart-item-total">₹0</span>
+            </div>
+            <div class="flex justify-between text-gray-300 text-sm mb-3">
+                <span>Delivery Fee</span>
+                <span id="cart-delivery-fee">₹0</span>
+            </div>
+            <div class="flex justify-between text-white text-lg font-bold mb-4 pt-2 border-t border-gray-700">
+                <span>Grand Total</span>
+                <span id="cart-grand-total" class="text-brand-500">₹0</span>
             </div>
             
-            <div id="shop-timing-msg" class="hidden mb-3 text-center bg-red-500/20 text-red-400 py-2 rounded-xl text-sm font-bold border border-red-500/30">
-                Orders Available Between 4 PM – 9 PM
+            <div id="checkout-area">
+                </div>
+        </div>
+    </div>
+    
+    <div id="cart-backdrop" onclick="toggleCart()" class="fixed inset-0 bg-black/60 z-40 hidden backdrop-blur-sm transition-opacity"></div>
+
+    <div class="fixed bottom-0 left-0 w-full z-30 glass-bottom pb-safe pt-2 pb-2 px-2 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+        <div class="container mx-auto flex items-center justify-between gap-2 md:gap-4 max-w-2xl">
+            <div class="flex-1 text-center md:text-left hidden sm:block">
+                <p class="text-xs text-gray-400 font-medium">Contact Shop</p>
+                <p class="text-sm font-bold glow-text">+91 94439 92518</p>
             </div>
-            
-            <button id="whatsapp-btn" onclick="sendWhatsAppOrder()" class="w-full gradient-bg text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed">
-                <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Order via WhatsApp
-            </button>
+            <a href="tel:+919443992518" class="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 px-2 rounded-xl font-bold text-sm md:text-base flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:scale-105 transition">
+                <i class="fa-solid fa-phone"></i> Call to Order
+            </a>
+            <a href="https://maps.app.goo.gl/qifggqfKZqeMwpif7?g_st=ac" target="_blank" class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-2 rounded-xl font-bold text-sm md:text-base flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:scale-105 transition">
+                <i class="fa-solid fa-location-dot"></i> Get Direction
+            </a>
         </div>
     </div>
 
     <script>
-        // --- 1. DATA STRUCTURE ---
-        const menuData = [
-            // VEG
-            { id: 'v1', name: 'French Fries', type: 'veg', desc: '1 Plate', price: 60, image: 'images/french-fries.jpg', flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'] },
-            { id: 'v2', name: 'Fried Veg Momos', type: 'veg', desc: '6 Pieces', price: 60, image: 'images/fried-veg-momos.jpg' },
-            { id: 'v3', name: 'Samosa', type: 'veg', desc: '1 Piece', price: 20, image: 'images/samosa.jpg' },
-            { id: 'v4', name: 'Veg Lollipop', type: 'veg', desc: '4 Pieces', price: 60, image: 'images/veg-lollipop.jpg' },
-            { id: 'v5', name: 'Veg Nuggets', type: 'veg', desc: '8 Pieces', price: 60, image: 'images/veg-nuggets.jpg' },
-            { id: 'v6', name: 'Fried Veg Roll', type: 'veg', desc: '3 Pieces', price: 60, image: 'images/fried-veg-roll.jpg' },
-            { id: 'v7', name: 'Cheese Corn Nuggets', type: 'veg', desc: '6 Pieces', price: 60, image: 'images/cheese-corn-nuggets.jpg' },
-            { id: 'v8', name: 'Veg Popcorn', type: 'veg', desc: 'Crispy bites', sizes: { 'Small': 20, 'Medium': 35, 'Large': 50 }, flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'], image: 'images/veg-popcorn.jpg' },
-            { id: 'v9', name: 'Veg Burger', type: 'veg', desc: 'Single Patty', price: 80, image: 'images/veg-burger-single.jpg' },
-            { id: 'v10', name: 'Veg Burger', type: 'veg', desc: 'Double Patty', price: 120, image: 'images/veg-burger-double.jpg' },
+        // --- DATA STRUCTURE ---
+        const menuItems = [
+            // VEG ITEMS
+            { id: 'v1', name: 'French Fries', type: 'veg', unit: '1 Plate', price: 60, hasFlavors: true, flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'], image: 'images/french-fries.jpg' },
+            { id: 'v2', name: 'Fried Veg Momos', type: 'veg', unit: '6 Pieces', price: 60, image: 'images/fried-veg-momos.jpg' },
+            { id: 'v3', name: 'Samosa', type: 'veg', unit: '1 Piece', price: 20, image: 'images/samosa.jpg' },
+            { id: 'v4', name: 'Veg Lollipop', type: 'veg', unit: '4 Pieces', price: 60, image: 'images/veg-lollipop.jpg' },
+            { id: 'v5', name: 'Veg Nuggets', type: 'veg', unit: '8 Pieces', price: 60, image: 'images/veg-nuggets.jpg' },
+            { id: 'v6', name: 'Fried Veg Roll', type: 'veg', unit: '3 Pieces', price: 60, image: 'images/fried-veg-roll.jpg' },
+            { id: 'v7', name: 'Cheese Corn Nuggets', type: 'veg', unit: '6 Pieces', price: 60, image: 'images/cheese-corn-nuggets.jpg' },
+            { id: 'v8', name: 'Veg Popcorn', type: 'veg', hasSizes: true, sizes: [{name: 'Small', price: 20}, {name: 'Medium', price: 35}, {name: 'Large', price: 50}], hasFlavors: true, flavors: ['Tangy Tomato', 'Butter Cheese', 'Peri Peri'], image: 'images/veg-popcorn.jpg' },
+            { id: 'v9', name: 'Veg Burger – Single Patty', type: 'veg', unit: '1 Item', price: 80, image: 'images/veg-burger-single.jpg' },
+            { id: 'v10', name: 'Veg Burger – Double Patty', type: 'veg', unit: '1 Item', price: 120, image: 'images/veg-burger-double.jpg' },
             
-            // NON-VEG
-            { id: 'nv1', name: 'Chicken Garlic Fingers', type: 'non-veg', desc: '5 Pieces', price: 120, image: 'images/chicken-garlic-fingers.jpg' },
-            { id: 'nv2', name: 'Chicken Nuggets', type: 'non-veg', desc: '8 Pieces', price: 120, image: 'images/chicken-nuggets.jpg' },
-            { id: 'nv3', name: 'Chicken Popcorn', type: 'non-veg', desc: '20 Pieces', price: 120, image: 'images/chicken-popcorn.jpg' },
-            { id: 'nv4', name: 'Chicken Balls', type: 'non-veg', desc: '6 Pieces', price: 120, image: 'images/chicken-balls.jpg' },
-            { id: 'nv5', name: 'Chicken Breast Strips', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-breast-strips.jpg' },
-            { id: 'nv6', name: 'Chicken Fried Momos', type: 'non-veg', desc: '8 Pieces', price: 120, image: 'images/chicken-fried-momos.jpg' },
-            { id: 'nv7', name: 'Chicken Lollipop', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-lollipop.jpg' },
-            { id: 'nv8', name: 'Chicken Wings', type: 'non-veg', desc: '3 Pieces', price: 120, image: 'images/chicken-wings.jpg' },
-            { id: 'nv9', name: 'Breaded Chicken', type: 'non-veg', desc: '2 Pieces', price: 120, image: 'images/breaded-chicken.jpg' },
-            { id: 'nv10', name: 'Chicken Burger', type: 'non-veg', desc: 'Single Patty', price: 100, image: 'images/chicken-burger-single.jpg' },
-            { id: 'nv11', name: 'Chicken Burger', type: 'non-veg', desc: 'Double Patty', price: 140, image: 'images/chicken-burger-double.jpg' }
+            // NON-VEG ITEMS
+            { id: 'n1', name: 'Chicken Garlic Fingers', type: 'nonveg', unit: '5 Pieces', price: 120, image: 'images/chicken-garlic-fingers.jpg' },
+            { id: 'n2', name: 'Chicken Nuggets', type: 'nonveg', unit: '8 Pieces', price: 120, image: 'images/chicken-nuggets.jpg' },
+            { id: 'n3', name: 'Chicken Popcorn', type: 'nonveg', unit: '20 Pieces', price: 120, image: 'images/chicken-popcorn.jpg' },
+            { id: 'n4', name: 'Chicken Balls', type: 'nonveg', unit: '6 Pieces', price: 120, image: 'images/chicken-balls.jpg' },
+            { id: 'n5', name: 'Chicken Breast Strips', type: 'nonveg', unit: '3 Pieces', price: 120, image: 'images/chicken-breast-strips.jpg' },
+            { id: 'n6', name: 'Chicken Fried Momos', type: 'nonveg', unit: '8 Pieces', price: 120, image: 'images/chicken-fried-momos.jpg' },
+            { id: 'n7', name: 'Chicken Lollipop', type: 'nonveg', unit: '3 Pieces', price: 120, image: 'images/chicken-lollipop.jpg' },
+            { id: 'n8', name: 'Chicken Wings', type: 'nonveg', unit: '3 Pieces', price: 120, image: 'images/chicken-wings.jpg' },
+            { id: 'n9', name: 'Breaded Chicken', type: 'nonveg', unit: '2 Pieces', price: 120, image: 'images/breaded-chicken.jpg' },
+            { id: 'n10', name: 'Chicken Burger – Single Patty', type: 'nonveg', unit: '1 Item', price: 100, image: 'images/chicken-burger-single.jpg' },
+            { id: 'n11', name: 'Chicken Burger – Double Patty', type: 'nonveg', unit: '1 Item', price: 140, image: 'images/chicken-burger-double.jpg' }
         ];
 
-        let cart = [];
+        // --- STATE ---
+        let cart = {}; // Key: uniqueVariantId, Value: { itemDetails, qty }
         let isShopOpen = false;
+        let cartTotal = 0;
+        let deliveryFee = 0;
+        let unlockedOffers = [];
 
-        // --- 2. INITIALIZATION & RENDERING ---
-        function init() {
-            renderMenu();
-            checkShopTimings();
-            setInterval(checkShopTimings, 60000); // Check every minute
-        }
-
-        function renderMenu() {
-            const vegGrid = document.getElementById('veg-grid');
-            const nonVegGrid = document.getElementById('nonveg-grid');
+        // --- TIME LOGIC ---
+        function checkShopStatus() {
+            const now = new Date();
+            const hour = now.getHours(); // Local 0-23
+            const statusEl = document.getElementById('shop-status');
             
-            menuData.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "glass-card rounded-2xl p-4 flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300";
+            // Open 4 PM (16) to 9 PM (21)
+            if (hour >= 16 && hour < 21) {
+                isShopOpen = true;
+                statusEl.innerHTML = '🟢 We are open now!';
+                statusEl.className = 'px-3 py-0.5 rounded-full text-xs font-bold tracking-wide bg-green-900/50 text-green-400 border border-green-500/50 shadow-[0_0_10px_rgba(34,197,94,0.3)]';
+            } else {
+                isShopOpen = false;
+                let msg = hour < 16 ? '🔴 Closed. We open at 4:00 PM.' : '🔴 Closed. We will open at 4:00 PM.';
+                statusEl.innerHTML = msg;
+                statusEl.className = 'px-3 py-0.5 rounded-full text-xs font-bold tracking-wide bg-red-900/50 text-red-400 border border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]';
+            }
+            updateCartUI(); // Update checkout button state
+        }
+        setInterval(checkShopStatus, 60000); // Check every minute
+
+        // --- RENDER MENU ---
+        function renderMenu() {
+            const vegContainer = document.getElementById('veg-container');
+            const nonVegContainer = document.getElementById('non-veg-container');
+            
+            vegContainer.innerHTML = '';
+            nonVegContainer.innerHTML = '';
+
+            menuItems.forEach(item => {
+                // Fallback image logic for visual safety
+                const imgTag = `<img src="${item.image}" alt="${item.name}" onerror="this.src='https://placehold.co/400x300/1e293b/f97316?text=${encodeURIComponent(item.name)}'" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-500 hover:scale-105">`;
                 
-                const typeIcon = item.type === 'veg' 
-                    ? `<span class="absolute top-4 left-4 z-10 w-4 h-4 rounded-sm border-2 border-green-500 bg-white flex items-center justify-center shadow-md"><span class="w-2 h-2 bg-green-500 rounded-full"></span></span>`
-                    : `<span class="absolute top-4 left-4 z-10 w-4 h-4 rounded-sm border-2 border-red-500 bg-white flex items-center justify-center shadow-md"><span class="w-2 h-2 bg-red-500 rounded-full"></span></span>`;
-
-                // Build Price Display
-                let priceDisplay = `₹${item.price}`;
-                if(item.sizes) priceDisplay = `From ₹${Math.min(...Object.values(item.sizes))}`;
-
-                // Build Variant Selectors
-                let selectorsHtml = '';
-                if(item.sizes) {
-                    selectorsHtml += `<select id="size-${item.id}" onchange="updateCardUI('${item.id}')" class="w-full bg-slate-800 text-sm text-slate-200 border border-slate-700 rounded-lg p-2.5 mb-2 focus:border-brand-500 outline-none">`;
-                    for(const [size, price] of Object.entries(item.sizes)) {
-                        selectorsHtml += `<option value="${size}">${size} - ₹${price}</option>`;
-                    }
-                    selectorsHtml += `</select>`;
+                let sizeHtml = '';
+                if(item.hasSizes) {
+                    let opts = item.sizes.map(s => `<option value="${s.name}">Size: ${s.name} - ₹${s.price}</option>`).join('');
+                    sizeHtml = `<select id="size-${item.id}" onchange="refreshCardUI('${item.id}')" class="w-full bg-gray-800 text-sm text-gray-200 border border-gray-600 rounded-lg p-2 mb-2 focus:border-brand-500 outline-none transition">${opts}</select>`;
                 }
+
+                let flavorHtml = '';
+                if(item.hasFlavors) {
+                    let opts = item.flavors.map(f => `<option value="${f}">Flavor: ${f}</option>`).join('');
+                    flavorHtml = `<select id="flavor-${item.id}" onchange="refreshCardUI('${item.id}')" class="w-full bg-gray-800 text-sm text-gray-200 border border-gray-600 rounded-lg p-2 mb-3 focus:border-brand-500 outline-none transition">${opts}</select>`;
+                }
+
+                const priceDisplay = item.hasSizes ? `<span id="price-display-${item.id}" class="text-xl font-bold text-white">₹${item.sizes[0].price}</span>` : `<span class="text-xl font-bold text-white">₹${item.price}</span>`;
+                const tagColor = item.type === 'veg' ? 'bg-green-600' : 'bg-red-600';
                 
-                if(item.flavors) {
-                    selectorsHtml += `<select id="flavor-${item.id}" onchange="updateCardUI('${item.id}')" class="w-full bg-slate-800 text-sm text-slate-200 border border-slate-700 rounded-lg p-2.5 mb-3 focus:border-brand-500 outline-none">`;
-                    item.flavors.forEach(flavor => {
-                        selectorsHtml += `<option value="${flavor}">${flavor}</option>`;
-                    });
-                    selectorsHtml += `</select>`;
-                }
-
-                card.innerHTML = `
-                    ${typeIcon}
-                    <div class="w-full h-40 rounded-xl mb-4 overflow-hidden img-fallback relative">
-                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.style.display='none'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                    </div>
-                    <div class="flex-1 flex flex-col">
-                        <h4 class="text-lg font-bold text-white leading-tight mb-1">${item.name}</h4>
-                        <p class="text-xs text-slate-400 mb-3">${item.desc}</p>
-                        <div class="mt-auto">
-                            ${selectorsHtml}
-                            <div class="flex items-center justify-between mt-2">
-                                <span class="text-lg font-extrabold text-brand-400" id="price-disp-${item.id}">${priceDisplay}</span>
-                                <div id="action-${item.id}" class="w-[100px] h-[40px]">
-                                    <button onclick="addToCart('${item.id}')" class="w-full h-full bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-xl shadow-md active:scale-95 transition-all text-sm">ADD</button>
+                const cardHtml = `
+                    <div class="glass-card rounded-xl shadow-lg relative group overflow-hidden flex flex-col h-full">
+                        <div class="absolute top-3 left-3 w-4 h-4 ${tagColor} rounded-full border-2 border-white z-10 shadow-md"></div>
+                        <div class="overflow-hidden rounded-t-xl relative">
+                            ${imgTag}
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-gray-900 to-transparent p-3 pt-10">
+                                <span class="text-xs font-semibold bg-gray-900/80 px-2 py-1 rounded text-gray-300 border border-gray-600">${item.unit || 'Custom'}</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <h3 class="text-lg font-bold text-white mb-3 line-clamp-2">${item.name}</h3>
+                            <div class="mt-auto">
+                                ${sizeHtml}
+                                ${flavorHtml}
+                                <div class="flex items-center justify-between mt-2 h-10">
+                                    ${priceDisplay}
+                                    <div id="action-${item.id}" class="min-w-[100px] flex justify-end">
+                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `;
 
-                if(item.type === 'veg') vegGrid.appendChild(card);
-                else nonVegGrid.appendChild(card);
-
-                // Initial setup for variant pricing display
-                if(item.sizes || item.flavors) updateCardUI(item.id);
+                if(item.type === 'veg') vegContainer.innerHTML += cardHtml;
+                else nonVegContainer.innerHTML += cardHtml;
             });
+            
+            // Initialize card buttons
+            menuItems.forEach(item => refreshCardUI(item.id));
         }
 
-        // --- 3. LOGIC & STATE MANAGEMENT ---
-        function getSelectedVariants(itemId) {
-            const item = menuData.find(i => i.id === itemId);
-            const sizeEl = document.getElementById(`size-${itemId}`);
-            const flavorEl = document.getElementById(`flavor-${itemId}`);
+        // --- LOGIC: GENERATE UNIQUE ID ---
+        function getSelectedVariant(itemId) {
+            const item = menuItems.find(m => m.id === itemId);
+            let size = item.hasSizes ? document.getElementById(`size-${itemId}`).value : null;
+            let flavor = item.hasFlavors ? document.getElementById(`flavor-${itemId}`).value : null;
+            let price = item.price;
+            if (item.hasSizes) {
+                price = item.sizes.find(s => s.name === size).price;
+            }
             
-            const size = sizeEl ? sizeEl.value : null;
-            const flavor = flavorEl ? flavorEl.value : null;
-            const price = size ? item.sizes[size] : item.price;
+            let uniqueId = itemId;
+            let variantName = [];
+            if(size) { uniqueId += `-${size}`; variantName.push(size); }
+            if(flavor) { uniqueId += `-${flavor}`; variantName.push(flavor); }
             
-            return { size, flavor, price };
+            let displayName = item.name;
+            if(variantName.length > 0) displayName += ` (${variantName.join(' - ')})`;
+
+            return { uniqueId, size, flavor, price, displayName, baseItem: item };
         }
 
-        function generateCartKey(itemId, size, flavor) {
-            return `${itemId}|${size || 'none'}|${flavor || 'none'}`;
-        }
-
-        function updateCardUI(itemId) {
-            const item = menuData.find(i => i.id === itemId);
-            const vars = getSelectedVariants(itemId);
+        // --- LOGIC: UPDATE INDIVIDUAL CARD UI ---
+        function refreshCardUI(itemId) {
+            const variant = getSelectedVariant(itemId);
+            const actionContainer = document.getElementById(`action-${itemId}`);
             
-            // Update Price display if size changed
-            if(item.sizes) {
-                document.getElementById(`price-disp-${itemId}`).innerText = `₹${vars.price}`;
+            // Update dynamic price if size changed
+            if(variant.baseItem.hasSizes) {
+                document.getElementById(`price-display-${itemId}`).innerText = `₹${variant.price}`;
             }
 
-            // Check if exact variant is in cart
-            const cartKey = generateCartKey(itemId, vars.size, vars.flavor);
-            const cartItem = cart.find(c => c.key === cartKey);
-            const actionContainer = document.getElementById(`action-${itemId}`);
+            const cartItem = cart[variant.uniqueId];
+            const qty = cartItem ? cartItem.qty : 0;
 
-            if(cartItem) {
+            if (qty > 0) {
                 actionContainer.innerHTML = `
-                    <div class="w-full h-full bg-slate-800 border border-brand-500 rounded-xl flex items-center justify-between px-2 text-white font-bold">
-                        <button onclick="updateQty('${cartKey}', -1)" class="p-1 text-slate-300 hover:text-white active:scale-90"><i class="ph ph-minus"></i></button>
-                        <span>${cartItem.qty}</span>
-                        <button onclick="updateQty('${cartKey}', 1)" class="p-1 text-brand-400 hover:text-brand-300 active:scale-90"><i class="ph ph-plus"></i></button>
+                    <div class="flex items-center bg-brand-500 rounded-lg overflow-hidden shadow-lg h-9">
+                        <button onclick="updateQty('${variant.uniqueId}', -1)" class="w-8 h-full flex items-center justify-center text-white hover:bg-brand-600 transition"><i class="fa-solid fa-minus text-xs"></i></button>
+                        <span class="w-8 text-center text-white font-bold text-sm">${qty}</span>
+                        <button onclick="updateQty('${variant.uniqueId}', 1)" class="w-8 h-full flex items-center justify-center text-white hover:bg-brand-600 transition"><i class="fa-solid fa-plus text-xs"></i></button>
                     </div>
                 `;
             } else {
                 actionContainer.innerHTML = `
-                    <button onclick="addToCart('${itemId}')" class="w-full h-full bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-xl shadow-md shadow-slate-100/10 active:scale-95 transition-all text-sm">ADD</button>
+                    <button onclick="addToCart('${itemId}')" class="bg-gray-100 text-gray-900 hover:bg-brand-500 hover:text-white font-bold py-1.5 px-6 rounded-lg transition-all shadow-md h-9 text-sm">
+                        ADD
+                    </button>
                 `;
             }
         }
 
+        // --- LOGIC: CART OPERATIONS ---
         function addToCart(itemId) {
-            const item = menuData.find(i => i.id === itemId);
-            const vars = getSelectedVariants(itemId);
-            const key = generateCartKey(itemId, vars.size, vars.flavor);
-            
-            cart.push({
-                key, itemId, name: item.name, price: vars.price, qty: 1, size: vars.size, flavor: vars.flavor
-            });
-            
-            updateCart();
-            openCart();
-        }
-
-        function updateQty(cartKey, change) {
-            const index = cart.findIndex(c => c.key === cartKey);
-            if(index !== -1) {
-                cart[index].qty += change;
-                if(cart[index].qty <= 0) cart.splice(index, 1);
+            const variant = getSelectedVariant(itemId);
+            if (!cart[variant.uniqueId]) {
+                cart[variant.uniqueId] = { ...variant, qty: 1 };
             }
-            updateCart();
+            refreshAllUIs();
+            
+            // Animation for float button
+            const floatBtn = document.getElementById('cart-float-btn');
+            floatBtn.classList.remove('hidden');
+            floatBtn.classList.add('scale-110');
+            setTimeout(() => floatBtn.classList.remove('scale-110'), 200);
         }
 
-        // --- 4. CART & CALCULATIONS ---
-        function updateCart() {
-            let subtotal = 0;
-            const itemsContainer = document.getElementById('cart-items-container');
-            const emptyState = document.getElementById('empty-cart');
+        function updateQty(uniqueId, change) {
+            if (cart[uniqueId]) {
+                cart[uniqueId].qty += change;
+                if (cart[uniqueId].qty <= 0) {
+                    delete cart[uniqueId];
+                }
+            }
+            refreshAllUIs();
+        }
+
+        function refreshAllUIs() {
+            menuItems.forEach(item => refreshCardUI(item.id));
+            updateCartUI();
+        }
+
+        // --- LOGIC: CART UI & OFFERS ---
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items-container');
             const badge = document.getElementById('cart-badge');
+            const floatBtn = document.getElementById('cart-float-btn');
             
-            itemsContainer.innerHTML = '';
-            
-            let totalQty = 0;
+            let html = '';
+            cartTotal = 0;
+            let totalItems = 0;
+            unlockedOffers = [];
 
-            if(cart.length === 0) {
-                itemsContainer.appendChild(emptyState);
-                emptyState.classList.remove('hidden');
-                badge.classList.add('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                badge.classList.remove('hidden');
-                
-                cart.forEach(item => {
-                    subtotal += item.price * item.qty;
-                    totalQty += item.qty;
-                    
-                    let variantText = [];
-                    if(item.size) variantText.push(item.size);
-                    if(item.flavor) variantText.push(item.flavor);
-                    let variantStr = variantText.length > 0 ? `<p class="text-xs text-slate-400 mb-2">${variantText.join(' - ')}</p>` : '';
+            Object.values(cart).forEach(item => {
+                let itemSubtotal = item.price * item.qty;
+                cartTotal += itemSubtotal;
+                totalItems += item.qty;
 
-                    itemsContainer.innerHTML += `
-                        <div class="bg-slate-800 rounded-xl p-3 flex justify-between items-center border border-slate-700/50">
-                            <div class="flex-1">
-                                <h5 class="text-sm font-bold text-white">${item.name}</h5>
-                                ${variantStr}
-                                <span class="text-brand-400 font-bold text-sm">₹${item.price}</span>
+                const tagColor = item.baseItem.type === 'veg' ? 'text-green-500 border-green-500' : 'text-red-500 border-red-500';
+
+                html += `
+                    <div class="bg-gray-800/60 rounded-xl p-3 border border-gray-700 flex flex-col gap-2 relative">
+                        <div class="flex justify-between items-start gap-2">
+                            <div class="flex items-start gap-2">
+                                <div class="w-3 h-3 mt-1.5 rounded-sm border ${tagColor} flex items-center justify-center p-[1px]"><div class="w-full h-full rounded-sm bg-current"></div></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-100 leading-tight">${item.displayName}</h4>
+                                    <p class="text-xs text-brand-500 font-medium mt-1">₹${item.price} / item</p>
+                                </div>
                             </div>
-                            <div class="bg-slate-900 border border-slate-600 rounded-lg flex items-center justify-between px-2 py-1 w-24">
-                                <button onclick="updateQty('${item.key}', -1)" class="text-slate-400 hover:text-white"><i class="ph ph-minus"></i></button>
-                                <span class="text-white font-bold text-sm">${item.qty}</span>
-                                <button onclick="updateQty('${item.key}', 1)" class="text-brand-400 hover:text-brand-300"><i class="ph ph-plus"></i></button>
+                            <span class="font-bold text-white whitespace-nowrap">₹${itemSubtotal}</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-1">
+                            <button onclick="updateQty('${item.uniqueId}', -${item.qty})" class="text-xs text-gray-500 hover:text-red-400 underline decoration-dotted">Remove</button>
+                            <div class="flex items-center bg-gray-900 border border-gray-600 rounded-lg overflow-hidden h-8">
+                                <button onclick="updateQty('${item.uniqueId}', -1)" class="w-8 h-full flex items-center justify-center text-gray-300 hover:bg-gray-700 transition"><i class="fa-solid fa-minus text-xs"></i></button>
+                                <span class="w-8 text-center text-white font-bold text-sm">${item.qty}</span>
+                                <button onclick="updateQty('${item.uniqueId}', 1)" class="w-8 h-full flex items-center justify-center text-gray-300 hover:bg-gray-700 transition"><i class="fa-solid fa-plus text-xs"></i></button>
                             </div>
                         </div>
-                    `;
-                });
-            }
-            
-            badge.innerText = totalQty;
-
-            // Delivery Logic
-            let deliveryFee = cart.length > 0 ? 40 : 0;
-            const deliveryProgress = document.getElementById('delivery-progress');
-            const deliveryMsg = document.getElementById('delivery-msg');
-            
-            if (subtotal >= 300) {
-                deliveryFee = 0;
-                deliveryProgress.style.width = '100%';
-                deliveryMsg.innerHTML = '🎉 <span class="text-green-400">FREE Delivery Unlocked</span>';
-            } else if (subtotal > 0) {
-                const percent = (subtotal / 300) * 100;
-                deliveryProgress.style.width = `${percent}%`;
-                deliveryMsg.innerHTML = `Add ₹${300 - subtotal} more for <span class="text-brand-400">FREE Delivery</span>`;
-            } else {
-                deliveryProgress.style.width = '0%';
-                deliveryMsg.innerText = 'Add ₹300 more to unlock FREE Delivery';
-            }
-
-            // Offers Logic
-            const offersBanner = document.getElementById('offers-banner');
-            const offersText = document.getElementById('offers-text');
-            
-            if(subtotal === 0) {
-                offersBanner.classList.add('hidden');
-            } else if (subtotal < 180) {
-                offersBanner.classList.remove('hidden');
-                offersBanner.className = "px-4 py-3 bg-slate-800/80 border-b border-slate-800 text-sm font-medium text-slate-300 flex items-center gap-2";
-                offersText.innerHTML = `Add ₹${180 - subtotal} more to get <strong class="text-yellow-400">FREE Limonata</strong>`;
-            } else if (subtotal >= 180 && subtotal < 300) {
-                offersBanner.classList.remove('hidden');
-                offersBanner.className = "px-4 py-3 bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border-b border-slate-800 text-sm font-medium text-yellow-300 flex items-center gap-2";
-                offersText.innerHTML = `🎉 FREE Limonata! Add ₹${300 - subtotal} more for <strong class="text-green-400">FREE Cold Drink + FREE Delivery</strong>`;
-            } else {
-                offersBanner.classList.remove('hidden');
-                offersBanner.className = "px-4 py-3 bg-gradient-to-r from-green-900/40 to-emerald-900/40 border-b border-slate-800 text-sm font-medium text-green-300 flex items-center gap-2";
-                offersText.innerHTML = `🎉 You unlocked <strong class="text-white">FREE Cold Drink + FREE Delivery!</strong>`;
-            }
-
-            // Totals Update
-            document.getElementById('cart-subtotal').innerText = `₹${subtotal}`;
-            if(cart.length > 0 && deliveryFee === 0) {
-                document.getElementById('cart-delivery').innerHTML = `<span class="line-through text-slate-500 mr-2">₹40</span> <span class="text-green-400 font-bold">FREE</span>`;
-            } else {
-                document.getElementById('cart-delivery').innerText = `₹${deliveryFee}`;
-            }
-            
-            const grandTotal = subtotal + deliveryFee;
-            document.getElementById('cart-total').innerText = `₹${grandTotal}`;
-
-            // Refresh Menu Cards UI
-            menuData.forEach(item => updateCardUI(item.id));
-            
-            checkCheckoutState(grandTotal);
-        }
-
-        // --- 5. SHOP TIMINGS & WHATSAPP LOGIC ---
-        function checkShopTimings() {
-            // IST Time conversion logic (rough logic using client local time assuming target is local)
-            const currentHour = new Date().getHours();
-            isShopOpen = currentHour >= 16 && currentHour < 21; // 4 PM to 9 PM (21:00)
-            
-            updateCart(); // Trigger re-evaluation of checkout button
-        }
-
-        function checkCheckoutState(grandTotal) {
-            const btn = document.getElementById('whatsapp-btn');
-            const timingMsg = document.getElementById('shop-timing-msg');
-            
-            if(!isShopOpen) {
-                btn.classList.add('hidden');
-                timingMsg.classList.remove('hidden');
-                if(currentHour < 16) {
-                    timingMsg.innerText = "Orders Open at 4 PM";
-                } else {
-                    timingMsg.innerText = "Shop Closed Now (Open 4 PM - 9 PM)";
-                }
-            } else {
-                timingMsg.classList.add('hidden');
-                btn.classList.remove('hidden');
-                btn.disabled = cart.length === 0;
-            }
-        }
-
-        function sendWhatsAppOrder() {
-            if(cart.length === 0) return;
-            
-            let msg = `Hello Nalam Mini Mart Snacks,%0A%0AI want to order:%0A%0A`;
-            let subtotal = 0;
-            
-            cart.forEach(item => {
-                let vars = [];
-                if(item.size) vars.push(item.size);
-                if(item.flavor) vars.push(item.flavor);
-                let varStr = vars.length > 0 ? ` (${vars.join(' - ')})` : '';
-                
-                const itemTotal = item.price * item.qty;
-                subtotal += itemTotal;
-                msg += `* ${item.name}${varStr} x${item.qty} = ₹${itemTotal}%0A`;
+                    </div>
+                `;
             });
-            
-            let deliveryFee = subtotal >= 300 ? 0 : 40;
-            let grandTotal = subtotal + deliveryFee;
-            
-            msg += `%0A--------------------%0A`;
-            msg += `*Item Total:* ₹${subtotal}%0A`;
-            if(deliveryFee === 0) {
-                msg += `*Delivery:* FREE%0A`;
-            } else {
-                msg += `*Delivery:* ₹${deliveryFee}%0A`;
-            }
-            msg += `*Grand Total:* ₹${grandTotal}%0A`;
-            msg += `--------------------%0A`;
-            
-            // Offers
-            if(subtotal >= 300) {
-                msg += `%0A🎁 *Offers Unlocked:* FREE Cold Drink + FREE Delivery%0A`;
-            } else if (subtotal >= 180) {
-                msg += `%0A🎁 *Offers Unlocked:* FREE Limonata%0A`;
+
+            badge.innerText = totalItems;
+            if (totalItems > 0) floatBtn.classList.remove('hidden');
+            else floatBtn.classList.add('hidden');
+
+            cartItemsContainer.innerHTML = html || `<div class="flex flex-col items-center justify-center h-full text-gray-500 gap-3"><i class="fa-solid fa-cart-arrow-down text-4xl opacity-50"></i><p>Your cart is empty. Add some tasty snacks!</p></div>`;
+
+            // Delivery & Offers Logic
+            deliveryFee = cartTotal > 0 ? 40 : 0;
+            let bannerHtml = '';
+            let offerStyle = 'bg-gradient-to-r from-blue-900 to-indigo-900 border-blue-500/30';
+
+            if (cartTotal === 0) {
+                bannerHtml = `Add items to start your delicious order!`;
+            } else if (cartTotal < 180) {
+                bannerHtml = `Add <b>₹${180 - cartTotal}</b> more to get <span class="text-yellow-400 font-bold">FREE Limonata</span>!`;
+            } else if (cartTotal >= 180 && cartTotal < 300) {
+                unlockedOffers.push("FREE Limonata");
+                bannerHtml = `🎉 You unlocked <span class="text-yellow-400 font-bold">FREE Limonata</span>!<br><span class="text-xs mt-1 block">Add <b>₹${300 - cartTotal}</b> more for FREE Cold Drink + Delivery</span>`;
+                offerStyle = 'bg-gradient-to-r from-green-900 to-emerald-900 border-green-500/30';
+            } else if (cartTotal >= 300) {
+                deliveryFee = 0;
+                unlockedOffers.push("FREE Cold Drink", "FREE Delivery");
+                bannerHtml = `🎉 <span class="text-yellow-400 font-bold">FREE Cold Drink + FREE Delivery</span> Unlocked!`;
+                offerStyle = 'bg-gradient-to-r from-green-600 to-emerald-600 border-green-400 shadow-[0_0_15px_rgba(16,185,129,0.3)] text-white';
             }
 
-            msg += `%0APlease confirm my order.`;
+            document.getElementById('offer-banner').innerHTML = bannerHtml;
+            document.getElementById('offer-banner').className = `p-3 text-center text-sm font-medium border-b shadow-inner transition-all ${offerStyle}`;
+
+            // Totals UI
+            document.getElementById('cart-item-total').innerText = `₹${cartTotal}`;
             
-            const whatsappUrl = `https://wa.me/919443992518?text=${msg}`;
-            window.open(whatsappUrl, '_blank');
+            if (cartTotal > 0 && deliveryFee === 0) {
+                document.getElementById('cart-delivery-fee').innerHTML = `<s>₹40</s> <span class="text-green-400 font-bold ml-1 tracking-wide animate-pulse">FREE</span>`;
+            } else {
+                document.getElementById('cart-delivery-fee').innerText = `₹${deliveryFee}`;
+            }
+
+            let grandTotal = cartTotal + deliveryFee;
+            document.getElementById('cart-grand-total').innerText = `₹${grandTotal}`;
+
+            // Checkout Button Logic based on Time
+            const checkoutArea = document.getElementById('checkout-area');
+            if (cartTotal === 0) {
+                checkoutArea.innerHTML = `<button disabled class="w-full py-3 rounded-xl font-bold bg-gray-700 text-gray-500 cursor-not-allowed">Add items to order</button>`;
+            } else if (isShopOpen) {
+                checkoutArea.innerHTML = `
+                    <button onclick="sendWhatsAppOrder()" class="w-full py-3 rounded-xl font-bold text-white bg-[#25D366] hover:bg-[#20b858] glow-btn flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(37,211,102,0.4)]">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Order via WhatsApp
+                    </button>`;
+            } else {
+                let timeMsg = new Date().getHours() < 16 ? "Orders Open at 4 PM" : "Orders Available 4 PM - 9 PM";
+                checkoutArea.innerHTML = `
+                    <div class="w-full py-3 rounded-xl font-bold text-center bg-red-900/40 text-red-400 border border-red-500/30">
+                        <i class="fa-solid fa-clock mr-1"></i> ${timeMsg}
+                    </div>`;
+            }
         }
 
-        // --- 6. UI HELPERS ---
+        // --- CART SIDEBAR TOGGLE ---
         function toggleCart() {
             const sidebar = document.getElementById('cart-sidebar');
-            const overlay = document.getElementById('cart-overlay');
+            const backdrop = document.getElementById('cart-backdrop');
             
-            if(sidebar.classList.contains('translate-x-full')) {
-                sidebar.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                backdrop.classList.add('hidden');
+                document.body.style.overflow = '';
             } else {
-                sidebar.classList.add('translate-x-full');
-                overlay.classList.add('opacity-0');
-                setTimeout(() => overlay.classList.add('hidden'), 300);
+                sidebar.classList.add('open');
+                backdrop.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // prevent bg scroll
             }
         }
 
-        // Boot App
-        init();
+        // --- WHATSAPP ORDER FORMATTING ---
+        function sendWhatsAppOrder() {
+            if (cartTotal === 0) return;
+
+            let text = `Hello *Nalam Mini Mart Snacks*,\nI want to order:\n\n`;
+            
+            Object.values(cart).forEach(item => {
+                text += `▪ ${item.displayName} x${item.qty} = ₹${item.price * item.qty}\n`;
+            });
+
+            text += `\n*Item Total:* ₹${cartTotal}`;
+            
+            if(deliveryFee === 0) {
+                text += `\n*Delivery:* ₹0 (FREE)`;
+            } else {
+                text += `\n*Delivery:* ₹${deliveryFee}`;
+            }
+
+            text += `\n*Grand Total:* ₹${cartTotal + deliveryFee}\n`;
+
+            if (unlockedOffers.length > 0) {
+                text += `\n🎉 *Offers Unlocked:* ${unlockedOffers.join(' & ')}\n`;
+            }
+
+            text += `\nPlease confirm my order.`;
+
+            const encodedText = encodeURIComponent(text);
+            const waNumber = '919443992518';
+            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+        }
+
+        // --- INITIALIZATION ---
+        window.onload = () => {
+            renderMenu();
+            checkShopStatus();
+            updateCartUI();
+        };
+
     </script>
 </body>
 </html>
